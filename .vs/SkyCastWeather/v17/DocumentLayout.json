@@ -1,0 +1,121 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CAD629ED-732E-48E6-8168-91C44ECE99BB}|SkyCastWeather\\SkyCastWeather.csproj|C:\\Users\\ali\\Desktop\\SkyCastWeather\\skycastweather\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CAD629ED-732E-48E6-8168-91C44ECE99BB}|SkyCastWeather\\SkyCastWeather.csproj|solutionrelative:skycastweather\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAD629ED-732E-48E6-8168-91C44ECE99BB}|SkyCastWeather\\SkyCastWeather.csproj|c:\\users\\ali\\desktop\\skycastweather\\skycastweather\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAD629ED-732E-48E6-8168-91C44ECE99BB}|SkyCastWeather\\SkyCastWeather.csproj|solutionrelative:skycastweather\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAD629ED-732E-48E6-8168-91C44ECE99BB}|SkyCastWeather\\SkyCastWeather.csproj|C:\\Users\\ali\\Desktop\\SkyCastWeather\\skycastweather\\models\\weatherresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAD629ED-732E-48E6-8168-91C44ECE99BB}|SkyCastWeather\\SkyCastWeather.csproj|solutionrelative:skycastweather\\models\\weatherresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAD629ED-732E-48E6-8168-91C44ECE99BB}|SkyCastWeather\\SkyCastWeather.csproj|C:\\Users\\ali\\Desktop\\SkyCastWeather\\skycastweather\\models\\forecastresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAD629ED-732E-48E6-8168-91C44ECE99BB}|SkyCastWeather\\SkyCastWeather.csproj|solutionrelative:skycastweather\\models\\forecastresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAD629ED-732E-48E6-8168-91C44ECE99BB}|SkyCastWeather\\SkyCastWeather.csproj|C:\\Users\\ali\\Desktop\\SkyCastWeather\\skycastweather\\services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAD629ED-732E-48E6-8168-91C44ECE99BB}|SkyCastWeather\\SkyCastWeather.csproj|solutionrelative:skycastweather\\services\\weatherservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CAD629ED-732E-48E6-8168-91C44ECE99BB}|SkyCastWeather\\SkyCastWeather.csproj|C:\\Users\\ali\\Desktop\\SkyCastWeather\\skycastweather\\viewmodels\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CAD629ED-732E-48E6-8168-91C44ECE99BB}|SkyCastWeather\\SkyCastWeather.csproj|solutionrelative:skycastweather\\viewmodels\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\SkyCastWeather\\ViewModels\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "SkyCastWeather\\ViewModels\\RelayCommand.cs",
+              "ToolTip": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\SkyCastWeather\\ViewModels\\RelayCommand.cs",
+              "RelativeToolTip": "SkyCastWeather\\ViewModels\\RelayCommand.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAwwCEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:05:36.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\SkyCastWeather\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "SkyCastWeather\\ViewModels\\MainViewModel.cs",
+              "ToolTip": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\SkyCastWeather\\ViewModels\\MainViewModel.cs",
+              "RelativeToolTip": "SkyCastWeather\\ViewModels\\MainViewModel.cs",
+              "ViewState": "AgIAALQAAAAAAAAAAAAqwMIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:13:22.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WeatherResponse.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\SkyCastWeather\\Models\\WeatherResponse.cs",
+              "RelativeDocumentMoniker": "SkyCastWeather\\Models\\WeatherResponse.cs",
+              "ToolTip": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\SkyCastWeather\\Models\\WeatherResponse.cs",
+              "RelativeToolTip": "SkyCastWeather\\Models\\WeatherResponse.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAiwCYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T03:55:47.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\SkyCastWeather\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "SkyCastWeather\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\SkyCastWeather\\MainWindow.xaml",
+              "RelativeToolTip": "SkyCastWeather\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-11-23T03:40:45.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WeatherService.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\SkyCastWeather\\Services\\WeatherService.cs",
+              "RelativeDocumentMoniker": "SkyCastWeather\\Services\\WeatherService.cs",
+              "ToolTip": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\SkyCastWeather\\Services\\WeatherService.cs",
+              "RelativeToolTip": "SkyCastWeather\\Services\\WeatherService.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAA7wCgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T03:58:29.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ForecastResponse.cs",
+              "DocumentMoniker": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\SkyCastWeather\\Models\\ForecastResponse.cs",
+              "RelativeDocumentMoniker": "SkyCastWeather\\Models\\ForecastResponse.cs",
+              "ToolTip": "C:\\Users\\ali\\Desktop\\SkyCastWeather\\SkyCastWeather\\Models\\ForecastResponse.cs",
+              "RelativeToolTip": "SkyCastWeather\\Models\\ForecastResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T04:28:32.575Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

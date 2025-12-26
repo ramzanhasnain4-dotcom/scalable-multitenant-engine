@@ -1,0 +1,4 @@
+supabase.exe
+.vs/
+.env
+node_modules/
