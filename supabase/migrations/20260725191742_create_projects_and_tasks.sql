@@ -4,11 +4,13 @@ CREATE TABLE public.projects (
     tenant_id UUID NOT NULL REFERENCES public.tenants(id) ON DELETE CASCADE,
     name TEXT NOT NULL,
     code TEXT NOT NULL,
-    created_at TIMESTAMPTZ DEFAULT NOW() NOT NULL
+    created_at TIMESTAMPTZ DEFAULT NOW() NOT NULL,
+
+    -- Explicit composite constraint required for composite FK references
+    CONSTRAINT unique_tenant_project_id UNIQUE (tenant_id, id)
 );
 
--- Ensure project codes are unique *within* the same tenant,
--- but different tenants can reuse identical project codes!
+-- Ensure project codes are unique within the same tenant
 ALTER TABLE public.projects 
     ADD CONSTRAINT unique_tenant_project_code UNIQUE (tenant_id, code);
 
@@ -22,11 +24,11 @@ CREATE TABLE public.tasks (
     created_at TIMESTAMPTZ DEFAULT NOW() NOT NULL,
 
     -- Multi-Tenant Foreign Key Constraint:
-    -- Guarantees a task cannot be assigned to a project that belongs to a different tenant!
+    -- Guarantees a task cannot be assigned to a project that belongs to a different tenant
     CONSTRAINT fk_task_project_tenant FOREIGN KEY (tenant_id, project_id) 
         REFERENCES public.projects(tenant_id, id) ON DELETE CASCADE
 );
 
--- Indexes for performance under heavy query load
+-- Indexes for performance
 CREATE INDEX idx_projects_tenant ON public.projects(tenant_id);
 CREATE INDEX idx_tasks_tenant ON public.tasks(tenant_id);
