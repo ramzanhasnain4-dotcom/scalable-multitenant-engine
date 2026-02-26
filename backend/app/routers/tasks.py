@@ -1,6 +1,7 @@
 from uuid import UUID
-from fastapi import APIRouter, HTTPException, Request
+from fastapi import APIRouter, HTTPException, Request, BackgroundTasks
 from pydantic import BaseModel, Field
+from app.workers import process_task_event
 
 router = APIRouter(prefix="/tasks", tags=["tasks"])
 
@@ -17,8 +18,12 @@ class TaskResponse(BaseModel):
     title: str
     status: str
 
-@router.post("", response_model=TaskResponse, status_code=21)
-async def create_task(task: TaskCreate, request: Request):
+@router.post("", response_model=TaskResponse, status_code=201)
+async def create_task(
+    task: TaskCreate, 
+    request: Request, 
+    background_tasks: BackgroundTasks
+):
     db_pool = request.app.state.db_pool
     
     query = """
@@ -36,9 +41,19 @@ async def create_task(task: TaskCreate, request: Request):
                 task.title, 
                 task.status
             )
-            return dict(row)
+            result = dict(row)
+            
+            # Dispatch background worker execution without blocking response
+            background_tasks.add_task(
+                process_task_event, 
+                event_type="TASK_CREATED", 
+                tenant_id=result["tenant_id"], 
+                task_id=result["id"], 
+                title=result["title"]
+            )
+            
+            return result
         except Exception as e:
-            # Handle foreign key constraint violations (cross-tenant assignment rejection)
             if "fk_task_project_tenant" in str(e):
                 raise HTTPException(
                     status_code=400, 
