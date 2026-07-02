@@ -5,6 +5,7 @@ import asyncpg
 from dotenv import load_dotenv
 
 from app.routers import tasks
+from app.middleware import SimpleRateLimitMiddleware
 
 load_dotenv()
 
@@ -22,9 +23,17 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Multi-Tenant Event Engine Core", lifespan=lifespan)
 
-# Register endpoints
+# Register rate limiter middleware
+app.add_middleware(SimpleRateLimitMiddleware, max_requests=100, window_seconds=60)
+
+# Register routers
 app.include_router(tasks.router)
 
 @app.get("/health")
 async def health_check():
-    return {"status": "healthy", "engine": "running"}
+    return {
+        "status": "healthy", 
+        "engine": "running",
+        "version": "1.0.0",
+        "architecture": "multi-tenant-isolated"
+    }
