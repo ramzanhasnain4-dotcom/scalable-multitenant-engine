@@ -14,25 +14,40 @@ A multi-tenant backend built with **FastAPI**, **PostgreSQL (Supabase)**, and **
 
 The system has three main layers:
 
-```mermaid
-graph TD
-    subgraph "Client / API Layer"
-        REQ[Client HTTP Request] --> MW[Rate Limiter Middleware]
-        MW --> SCH[Pydantic Validation]
-    end
-
-    subgraph "Application Layer"
-        SCH -->|Valid Request| POOL[asyncpg Connection Pool]
-        SCH -->|Events| WRK[Background Task Worker]
-    end
-
-    subgraph "Database Layer - PostgreSQL"
-        POOL -->|Tenant Query| RLS{RLS Engine}
-        RLS -->|Context Check| FUNC[get_my_tenant - STABLE]
-        RLS -->|FK Guard| TBL[(Tenant Tables)]
-        TBL -->|Trigger| TRIG[process_audit_log]
-        TRIG --> AUDIT[(Audit Logs)]
-    end
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     CLIENT / API LAYER                          │
+│                                                                 │
+│   HTTP Request ──► Rate Limiter ──► Pydantic Validation         │
+└──────────────────────────┬──────────────────┬───────────────────┘
+                           │                  │
+                     valid request        events/notifications
+                           │                  │
+┌──────────────────────────▼──────────────────▼───────────────────┐
+│                     APPLICATION LAYER                            │
+│                                                                  │
+│        asyncpg Connection Pool          Background Task Worker   │
+│          (min=2, max=10)                (non-blocking dispatch)   │
+└──────────────────────────┬──────────────────────────────────────┘
+                           │
+                     tenant-scoped query
+                           │
+┌──────────────────────────▼──────────────────────────────────────┐
+│                 DATABASE LAYER (PostgreSQL)                      │
+│                                                                  │
+│   ┌─────────────┐    ┌───────────────┐    ┌──────────────────┐  │
+│   │  RLS Engine  │───►│ get_my_tenant │    │  Tenant Tables   │  │
+│   │  (policies)  │    │  (STABLE fn)  │    │ tenants/projects │  │
+│   └──────────────┘    └───────────────┘    │    /tasks        │  │
+│                                            └────────┬─────────┘  │
+│                                                     │            │
+│                                              AFTER trigger       │
+│                                                     │            │
+│                                            ┌────────▼─────────┐  │
+│                                            │ process_audit_log │  │
+│                                            │  (JSON snapshots) │  │
+│                                            └──────────────────┘  │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
 Basically:
@@ -40,15 +55,6 @@ Basically:
 - PostgreSQL handles the heavy lifting for isolation — RLS policies make sure tenants can only see their own rows, and composite foreign keys prevent cross-tenant references at the schema level.
 - Every write (insert/update/delete) fires a trigger that dumps a before/after JSON snapshot into an audit log table automatically.
 - Long-running stuff like notifications gets offloaded to background workers so the API doesn't block.
-
-```
-  Request Flow:
-
-  HTTP Client  ──►  FastAPI + Pydantic  ──►  asyncpg Pool  ──►  PostgreSQL (RLS + Triggers)
-                         │                                            │
-                         ▼                                            ▼
-                  Background Worker                            Audit Log Table
-```
 
 ---
 
